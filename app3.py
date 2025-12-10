@@ -67,10 +67,10 @@ MATERIAL_PROPERTIES = {
 @st.cache_resource
 def load_artifacts():
     try:
-        model = joblib.load("Model\chassis_rating_lgbm.pkl")
-        scaler = joblib.load('Model\scaler1.pkl')
-        label_encoder = joblib.load('Model\label_encoder.pkl')
-        material_db = pd.read_csv('Data\material_database.csv')
+        model = joblib.load("Model/chassis_rating_lgbm.pkl")
+        scaler = joblib.load('Model/scaler1.pkl')
+        label_encoder = joblib.load('Model/label_encoder.pkl')
+        material_db = pd.read_csv('Data/material_database.csv')
         return model, scaler, label_encoder, material_db
     except FileNotFoundError as e:
         st.error(f"Error: {e}. Please run the training notebook first!")
