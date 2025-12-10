@@ -4,3 +4,8 @@ env/
 .myenv/
 myenv/
 myvenv/
+
+# VS Code Dev Container
+.devcontainer/
+# Python cache files
+__pycache__/

@@ -80,18 +80,7 @@ model, scaler, label_encoder, material_db = load_artifacts()
 # le_material
 
 st.title("🚙Chassis Material Rating Predictor")
-<<<<<<< HEAD
 
-=======
->>>>>>> c2417f1363966b43291c9becfa179468a9eae360
- 
-
-# st.info("""
-# **📚 Based on Research:**
-# - Nawale, P., et al. (2023). Design automation and CAD customization of an EV chassis. *Journal of Physics: Conference Series*, 2601, 012014.
-# - Desai, M., et al. (2019). Optimal Material Selection on Designed Chassis. Springer.
-# - Khakurel, H., et al. (2021). Machine learning assisted prediction of Young's modulus. *Scientific Reports*.
-# """)
 
 
 st.sidebar.title("Prediction Settings")
@@ -106,7 +95,8 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("### About This Tool")
 st.sidebar.info("""
 **Rating Scale (1-5):**
-- **1**: Poor performance
+- 
+>>>>>>> c2417f1363966b43291c9becfa179468a9eae360**1**: Poor performance
 - **2**: Below average
 - **3**: Average
 - **4**: Good performance
