@@ -80,7 +80,10 @@ model, scaler, label_encoder, material_db = load_artifacts()
 # le_material
 
 st.title("🚙Chassis Material Rating Predictor")
+<<<<<<< HEAD
 
+=======
+>>>>>>> c2417f1363966b43291c9becfa179468a9eae360
  
 
 # st.info("""
