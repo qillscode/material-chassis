@@ -95,8 +95,7 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("### About This Tool")
 st.sidebar.info("""
 **Rating Scale (1-5):**
-- 
->>>>>>> c2417f1363966b43291c9becfa179468a9eae360**1**: Poor performance
+- **1**: Poor performance
 - **2**: Below average
 - **3**: Average
 - **4**: Good performance
