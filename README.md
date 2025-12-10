@@ -30,9 +30,9 @@ Lihat `requirements.txt` (disediakan). Paket utama:
 4. Buka URL lokal yang ditampilkan oleh Streamlit (biasanya http://localhost:8501).
 
 ## Struktur Berkas Penting
-- `app3.py`  aplikasi Streamlit utama.
-- `requirements.txt`  daftar dependensi Python.
-- `material_database.csv` dan `Data/Data Rating.csv`  data properti material dan label rating yang digunakan untuk pelatihan/prediksi.
+- `app3.py`  aplikasi Streamlit utama.
+- `requirements.txt`  daftar dependensi Python.
+- `material_database.csv` dan `Data/Data Rating.csv`  data properti material dan label rating yang digunakan untuk pelatihan/prediksi.
 
 ## Referensi
 - Nawale, P., Kanade, A., Nannaware, B., Sagalgile, A., Chougule, N., & Patange, A. (2023). Design automation and CAD customization of an EV chassis. *Journal of Physics: Conference Series*, 2601, 012014. https://doi.org/10.1088/1742-6596/2601/1/012014
