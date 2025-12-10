@@ -1,12 +1,12 @@
 # Chassis Material Rating Predictor
 
-Proyek ini adalah aplikasi Streamlit untuk memprediksi rating material (skala 1) untuk sasis otomotif berdasarkan properti mekanik (Su, Sy, E, G, bc, c1) dan tipe material. Ide dan pendekatan diadaptasi dari penelitian Nawale et al., *Design automation and CAD customization of an EV chassis* (J. Phys.: Conf. Ser. 2601, 012014, 2023).
+Proyek ini adalah aplikasi Streamlit untuk memprediksi rating material (skala 1-5) untuk sasis otomotif berdasarkan properti mekanik (Su, Sy, E, G, μ, ρ) dan tipe material. Ide dan pendekatan diadaptasi dari penelitian Nawale et al., *Design automation and CAD customization of an EV chassis* (J. Phys.: Conf. Ser. 2601, 012014, 2023).
 
 ## Fitur
 - Antarmuka web sederhana dengan dua mode:
   - Mode 1: pilih tipe material, auto-fill properti elastis tipikal, lalu prediksi rating.
   - Mode 2: masukkan manual semua properti material, termasuk opsi satuan MPa/GPa untuk E dan G.
-- Visualisasi distribusi keyakinan (probabilitas) untuk rating 1.
+- Visualisasi distribusi keyakinan (probabilitas) untuk rating 1-5.
 - Ringkasan input yang ditampilkan setelah prediksi.
 
 ## Persyaratan
