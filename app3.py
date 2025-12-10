@@ -8,7 +8,6 @@ from lightgbm import LGBMClassifier
 # Page Configuration
 st.set_page_config(
     page_title="Chassis Material Rating Predictor",
-    page_icon="🏎️",
     layout="wide"
 )
 
@@ -68,10 +67,10 @@ MATERIAL_PROPERTIES = {
 @st.cache_resource
 def load_artifacts():
     try:
-        model = joblib.load('chassis_rating_lgbm.pkl')
-        scaler = joblib.load('scaler1.pkl')
-        label_encoder = joblib.load('label_encoder.pkl')
-        material_db = pd.read_csv('material_database.csv')
+        model = joblib.load("Model\chassis_rating_lgbm.pkl")
+        scaler = joblib.load('Model\scaler1.pkl')
+        label_encoder = joblib.load('Model\label_encoder.pkl')
+        material_db = pd.read_csv('Data\material_database.csv')
         return model, scaler, label_encoder, material_db
     except FileNotFoundError as e:
         st.error(f"Error: {e}. Please run the training notebook first!")
@@ -80,8 +79,8 @@ def load_artifacts():
 model, scaler, label_encoder, material_db = load_artifacts()
 # le_material
 
-st.title("🏎️ Chassis Material Rating Predictor")
-st.subheader("AI-Powered Material Selection for Automotive Chassis Design")
+st.title("🚙Chassis Material Rating Predictor")
+st.subheader("Material selection assistant for automotive chassis design")
  
 
 # st.info("""
@@ -92,16 +91,16 @@ st.subheader("AI-Powered Material Selection for Automotive Chassis Design")
 # """)
 
 
-st.sidebar.title("⚙️ Prediction Settings")
+st.sidebar.title("Prediction Settings")
 st.sidebar.markdown("---")
 
 mode = st.sidebar.radio(
-    "🎯 Select Prediction Mode:",
-    ["📂 Mode 1: Material Type Selection", "✏️ Mode 2: Custom Material Input"]
+    "Select prediction mode:",
+    ["Mode 1: Material Type Selection", "Mode 2: Custom Material Input"]
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 📊 About This Tool")
+st.sidebar.markdown("### About This Tool")
 st.sidebar.info("""
 **Rating Scale (1-5):**
 - **1**: Poor performance
@@ -114,12 +113,12 @@ st.sidebar.info("""
 
 
 if "Mode 1" in mode:
-    st.header("📂 Mode 1: Material Type Selection")
+    st.header("Mode 1: Material Type Selection")
     
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.subheader("🔍 Step 1: Select Material Type")
+        st.subheader("Step 1: Select material type")
         
         material_type_m1 = st.selectbox(
             "Choose Material Category:",
@@ -133,9 +132,9 @@ if "Mode 1" in mode:
         st.info(f"**Selected:** {material_type_m1} - Typical elastic properties will be auto-filled based on this selection.")
         
         st.markdown("---")
-        st.subheader("✏️ Step 2: Input Strength Properties")
+        st.subheader("Step 2: Input strength properties")
         
-        st.caption(f"💡 Typical Range for {material_type_m1}:")
+        st.caption(f"Typical range for {material_type_m1}:")
         st.caption(f"   • Su: {typical_props_m1['Su_range']}")
         st.caption(f"   • Sy: {typical_props_m1['Sy_range']}")
         
@@ -160,7 +159,7 @@ if "Mode 1" in mode:
             )
         
         st.markdown("---")
-        st.subheader("🔒 Auto-Filled Properties (Typical Values)")
+        st.subheader("Auto-filled properties (typical values)")
         
         # Allow user to choose display units for E/G (model always uses MPa)
         display_moduli_unit_m1 = st.selectbox(
@@ -198,7 +197,7 @@ if "Mode 1" in mode:
         ]])
     
     with col2:
-        st.subheader("🎯 Prediction Result")
+        st.subheader("Prediction result")
         
         if st.button("🚀 PREDICT RATING", type="primary", use_container_width=True, key="predict_mode1"):
             # Model prediction
@@ -208,7 +207,7 @@ if "Mode 1" in mode:
 
             st.success(f"### Rating: {predicted_rating_m1} / 5")
             
-            st.subheader("📊 Confidence Distribution")
+            st.subheader("Confidence distribution")
             
             fig_m1 = go.Figure(data=[
                 go.Bar(
@@ -230,31 +229,31 @@ if "Mode 1" in mode:
             
             st.plotly_chart(fig_m1, use_container_width=True)
             
-            st.subheader("📝 Interpretation")
+            st.subheader("Interpretation")
             
             if predicted_rating_m1 == 5:
-                st.success("✅ Excellent Choice! This material configuration has outstanding properties for chassis applications.")
+                st.success("Excellent choice. This material configuration has very good properties for chassis applications.")
             elif predicted_rating_m1 == 4:
-                st.success("✅ Good Choice! This material configuration performs well for chassis applications.")
+                st.success("Good choice. This material configuration performs well for chassis applications.")
             elif predicted_rating_m1 == 3:
-                st.warning("⚠️ Average Performance. Consider adjusting Su/Sy or selecting a different material type.")
+                st.warning("Average performance. Consider adjusting Su/Sy or selecting a different material type.")
             elif predicted_rating_m1 == 2:
-                st.warning("⚠️ Below Average. This configuration may not meet chassis requirements.")
+                st.warning("Below average. This configuration may not meet chassis requirements.")
             else:
-                st.error("❌ Poor Performance. Not recommended for chassis applications.")
+                st.error("Poor performance. Not recommended for chassis applications.")
             
             
 
 
 else:
-    st.header("✏️ Mode 2: Custom Material Properties Input")
-    
-    st.info("🔬 **Advanced Mode:** Manually input all mechanical properties for custom materials or experimental alloys.")
+    st.header("Mode 2: Custom material properties input")
+	
+    st.info("Advanced mode: manually input all mechanical properties for custom materials or experimental alloys.")
     
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.subheader("📝 Input Material Properties")
+        st.subheader("Input material properties")
         
 
         material_type = st.selectbox(
@@ -268,7 +267,7 @@ else:
         st.markdown("---")
         
         # Strength Properties
-        st.markdown("#### 💪 Strength Properties")
+        st.markdown("#### Strength properties")
         col_su, col_sy = st.columns(2)
         
         with col_su:
@@ -290,7 +289,7 @@ else:
             )
         
         # Elastic Properties
-        st.markdown("#### 🔧 Elastic Properties")
+        st.markdown("#### Elastic properties")
 
         # Unit selector for elastic moduli (user-friendly: allow MPa or GPa)
         moduli_unit = st.selectbox(
@@ -323,7 +322,7 @@ else:
             )
         
         # Other Properties
-        st.markdown("#### 📐 Other Properties")
+        st.markdown("#### Other properties")
         col_mu, col_ro = st.columns(2)
         
         with col_mu:
@@ -367,7 +366,7 @@ else:
         ]])
     
     with col2:
-        st.subheader("🎯 Prediction Result")
+        st.subheader("Prediction result")
         # Input-range warnings removed per user request; predict regardless of dataset bounds
         if st.button("🚀 PREDICT RATING", type="primary", use_container_width=True, key="predict_custom"):
             # Scale input
@@ -382,7 +381,7 @@ else:
 
 
             # Confidence chart
-            st.subheader("📊 Confidence Distribution")
+            st.subheader("Confidence distribution")
 
             fig_custom = go.Figure(data=[
                 go.Bar(
@@ -405,7 +404,7 @@ else:
             st.plotly_chart(fig_custom, use_container_width=True)
 
             # Property Summary
-            st.subheader("📋 Input Summary")
+            st.subheader("Input summary")
             # Format E/G according to selected moduli unit (MPa or GPa)
             if moduli_unit == "GPa":
                 display_E = f"{E_custom:,.3f} GPa"
@@ -431,29 +430,18 @@ else:
 
 
 st.markdown("---")
-st.markdown("### 📚 References")
+st.markdown("### References")
 st.markdown("""
 1. Nawale, P., Kanade, A., Nannaware, B., Sagalgile, A., Chougule, N., & Patange, A. (2023). 
    Design automation and CAD customization of an EV chassis. *Journal of Physics: Conference Series*, 2601, 012014. 
    https://doi.org/10.1088/1742-6596/2601/1/012014
 """)
-# st.markdown("""
-# 1. Nawale, P., Kanade, A., Nannaware, B., Sagalgile, A., Chougule, N., & Patange, A. (2023). 
-#    Design automation and CAD customization of an EV chassis. *Journal of Physics: Conference Series*, 2601, 012014. 
-#    https://doi.org/10.1088/1742-6596/2601/1/012014
 
-# 2. Desai, M., et al. (2019). Optimal Material Selection on Designed Chassis. In *SIGMA 2018*. Springer. 
-#    https://link.springer.com/chapter/10.1007/978-981-13-1819-1_43
-
-# 3. Khakurel, H., et al. (2021). Machine learning assisted prediction of the Young's modulus of compositionally 
-#    complex alloys. *Scientific Reports*, 11, 17149. 
-#    https://doi.org/10.1038/s41598-021-96507-0
-# """)
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #888; font-size: 0.9rem;">
-    <b>🎓 Academic Project</b> | Built with Streamlit & Scikit-learn<br>
-    Model: Gradient Boosting Classifier | Accuracy: ~92%<br>
+    <b>Academic project</b> | Built with Streamlit and scikit-learn<br>
+    Model: Light GBM | Accuracy: ~97%<br>
     Based on 1500+ materials from ANSI, ISO, JIS, BS, NF standards
 </div>
 """, unsafe_allow_html=True)
