@@ -80,7 +80,7 @@ model, scaler, label_encoder, material_db = load_artifacts()
 # le_material
 
 st.title("🚙Chassis Material Rating Predictor")
-st.subheader("Material selection assistant for automotive chassis design")
+
  
 
 # st.info("""
