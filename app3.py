@@ -369,7 +369,8 @@ else:
             prediction_proba_custom = model.predict_proba(X_scaled_custom)[0]
 
             # Display result
-            st.markdown(f'<div class="prediction-box">Rating: {predicted_rating_custom} / 5</div>', unsafe_allow_html=True)
+            # st.markdown(f'<div class="prediction-box">Rating: {predicted_rating_custom} / 5</div>', unsafe_allow_html=True)
+            st.success(f"### Rating: {predicted_rating_custom} / 5")
 
 
             # Confidence chart
