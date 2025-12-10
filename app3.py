@@ -436,15 +436,19 @@ st.markdown("""
 1. Nawale, P., Kanade, A., Nannaware, B., Sagalgile, A., Chougule, N., & Patange, A. (2023). 
    Design automation and CAD customization of an EV chassis. *Journal of Physics: Conference Series*, 2601, 012014. 
    https://doi.org/10.1088/1742-6596/2601/1/012014
-
-2. Desai, M., et al. (2019). Optimal Material Selection on Designed Chassis. In *SIGMA 2018*. Springer. 
-   https://link.springer.com/chapter/10.1007/978-981-13-1819-1_43
-
-3. Khakurel, H., et al. (2021). Machine learning assisted prediction of the Young's modulus of compositionally 
-   complex alloys. *Scientific Reports*, 11, 17149. 
-   https://doi.org/10.1038/s41598-021-96507-0
 """)
+# st.markdown("""
+# 1. Nawale, P., Kanade, A., Nannaware, B., Sagalgile, A., Chougule, N., & Patange, A. (2023). 
+#    Design automation and CAD customization of an EV chassis. *Journal of Physics: Conference Series*, 2601, 012014. 
+#    https://doi.org/10.1088/1742-6596/2601/1/012014
 
+# 2. Desai, M., et al. (2019). Optimal Material Selection on Designed Chassis. In *SIGMA 2018*. Springer. 
+#    https://link.springer.com/chapter/10.1007/978-981-13-1819-1_43
+
+# 3. Khakurel, H., et al. (2021). Machine learning assisted prediction of the Young's modulus of compositionally 
+#    complex alloys. *Scientific Reports*, 11, 17149. 
+#    https://doi.org/10.1038/s41598-021-96507-0
+# """)
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #888; font-size: 0.9rem;">
